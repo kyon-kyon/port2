@@ -1,0 +1,14 @@
+<div class="col-xs-3">
+    <div>
+        <div>画像</div>
+        <%= attachment_image_tag user, :profile_image, :fill, 100, 100, format: 'jpeg', class: "img-circle pull-left profile-img", fallback: "no_image.jpg" %>
+    </div>
+    <div>
+        <div>name</div>
+        <%= user.name %>
+    </div>
+    <div>
+        <div>introduction</div>
+        <%= user.introduction %>
+    </div>
+</div>
