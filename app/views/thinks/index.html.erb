@@ -1,0 +1,12 @@
+<%= render 'thinks/create', think: @think %>
+
+<div class="col-xs-3">
+    
+    <%= @thinks.each do |think| %>
+        <div>title
+        <%= think.title %></div>
+   
+        <div>body
+        <%= think.body %></div>
+    <% end %>
+</div>

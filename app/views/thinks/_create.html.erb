@@ -1,0 +1,5 @@
+<%= form_with model:@think, local:true do |f| %>
+  <%= f.text_field :think_title, autofocus: true %>
+  <%= f.text_field :think_body, autofocus: true %>
+  <%= f.submit "送信", class:"btn btn-lg btn-block btn-base-1 mt-20" %>
+<% end %>

@@ -10,7 +10,14 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_01_21_154505) do
+ActiveRecord::Schema.define(version: 2021_01_22_080454) do
+
+  create_table "categories", force: :cascade do |t|
+    t.string "name"
+    t.boolean "is_active", default: true, null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
 
   create_table "posts", force: :cascade do |t|
     t.string "title"
@@ -19,7 +26,20 @@ ActiveRecord::Schema.define(version: 2021_01_21_154505) do
     t.datetime "updated_at", null: false
   end
 
+  create_table "think_relationships", force: :cascade do |t|
+    t.integer "think_follower_id"
+    t.integer "think_followed_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["think_followed_id"], name: "index_think_relationships_on_think_followed_id"
+    t.index ["think_follower_id", "think_followed_id"], name: "think_relationships_index", unique: true
+    t.index ["think_follower_id"], name: "index_think_relationships_on_think_follower_id"
+  end
+
   create_table "thinks", force: :cascade do |t|
+    t.integer "category_id"
+    t.string "think_title"
+    t.text "think_body"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
